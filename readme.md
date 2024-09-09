@@ -28,6 +28,8 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="30" alt="git logo"  />
 </div>
 
+<a href="https://app.rocketseat.com.br/me/vitin021y"><img src="https://app.rocketseat.com.br/api/rocketid/share?slug=vitin021y&type=card" width="280" alt="Vitor Custodio da Silva 's Rocket ID"/></a>
+
 ###
 
 <div align="left">
