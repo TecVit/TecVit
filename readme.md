@@ -2,7 +2,7 @@
 
 ###
 
-[![My Skills](https://skillicons.dev/icons?i=ts,js,sass,tailwind,nodejs,npm,html,css,react,c,cpp,py,bash,linux,mint,debian,kali,aws,gcp,mongodb,git,github,firebase,cloudflare,netlify)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=ts,js,sass,tailwind,nodejs,express,npm,html,css,react,c,cpp,py,bash,linux,mint,debian,kali,aws,gcp,mongodb,git,github,firebase,cloudflare,netlify)](https://skillicons.dev)
 
 <br/>
 
