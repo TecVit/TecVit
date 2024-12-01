@@ -28,7 +28,7 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="30" alt="git logo"  />
 </div>
 
-[![My Skills](https://skillicons.dev/icons?i=js,nodejs,html,css,react,linux,mint,debian,kali,aws,gcp,mongodb,git,github,bash,cpp,firebase,netlify)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=ts,js,sass,tailwind,nodejs,npm,html,css,react,cpp,py,bash,linux,mint,debian,kali,aws,gcp,mongodb,git,github,firebase,netlify)](https://skillicons.dev)
 [![My Skills](https://skillicons.dev/icons?i=discord,instagram)](https://skillicons.dev)
 
 <a href="https://app.rocketseat.com.br/me/vitin021y"><img src="https://app.rocketseat.com.br/api/rocketid/share?slug=vitin021y&type=card" width="280" alt="Vitor Custodio da Silva 's Rocket ID"/></a>
