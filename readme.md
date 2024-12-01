@@ -3,6 +3,9 @@
 ###
 
 [![My Skills](https://skillicons.dev/icons?i=ts,js,sass,tailwind,nodejs,npm,html,css,react,c,cpp,py,bash,linux,mint,debian,kali,aws,gcp,mongodb,git,github,firebase,cloudflare,netlify)](https://skillicons.dev)
+
+<br/>
+
 [![My Skills](https://skillicons.dev/icons?i=discord,instagram)](https://skillicons.dev)
 
 <a href="https://app.rocketseat.com.br/me/vitin021y"><img src="https://app.rocketseat.com.br/api/rocketid/share?slug=vitin021y&type=card" width="280" alt="Vitor Custodio da Silva 's Rocket ID"/></a>
