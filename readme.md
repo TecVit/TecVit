@@ -6,7 +6,7 @@
 
 <br/>
 
-[![My Skills](https://skillicons.dev/icons?i=discord,instagram)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=instagram)](https://instagram.com/Vitin021y)
 
 <a href="https://app.rocketseat.com.br/me/vitin021y"><img src="https://app.rocketseat.com.br/api/rocketid/share?slug=vitin021y&type=card" width="280" alt="Vitor Custodio da Silva 's Rocket ID"/></a>
 
