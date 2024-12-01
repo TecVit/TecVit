@@ -7,6 +7,7 @@
 <br/>
 
 [![My Skills](https://skillicons.dev/icons?i=instagram)](https://instagram.com/Vitin021y)
+[![My Skills](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/vitor-custodio-da-silva-589935328)
 
 <a href="https://app.rocketseat.com.br/me/vitin021y"><img src="https://app.rocketseat.com.br/api/rocketid/share?slug=vitin021y&type=card" width="280" alt="Vitor Custodio da Silva 's Rocket ID"/></a>
 
