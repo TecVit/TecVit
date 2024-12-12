@@ -1,0 +1,503 @@
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: var(--ten);
+  color: var(--two);
+}
+
+.content {
+  width: 95%;
+  max-width: 1000px;
+  height: auto;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px 0px;
+}
+
+/* Title */
+.title {
+  font-size: 15px;
+  font-weight: 625;
+  color: var(--three);
+  margin: 0px 0px 8px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title .circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--t);
+  margin: 0px 8px 0px 0px;
+}
+
+.title-two {
+  font-size: 17px;
+  font-weight: 625;
+  color: var(--three);
+  margin: 0px 0px 6px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title-two .circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  margin: 0px 0px 0px 8px;
+}
+
+.content .left {
+  min-width: 310px;
+  max-width: 310px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 20px 0px 0px;
+}
+
+/* Profile */
+.content .left .md-profile {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--eleven);
+  box-shadow: var(--boxShadow);
+  border-radius: 12px;
+}
+
+.content .left .md-profile .image-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.content .left .md-profile .image-container .image {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.content .left .md-profile .image img {
+  width: 100%;
+  height: auto;
+  transition: opacity 1s ease;
+}
+
+.content .left .md-profile .text {
+  width: 87.5%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  z-index: 100;
+}
+
+.content .left .md-profile .text .img-person {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-image: url('./image/person.jpeg');
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease, opacity 1s ease;
+  transition: opacity 1s ease;
+  margin: -60px 0px 15px 0px;
+}
+
+.content .left .md-profile .text h2 {
+  font-size: 13.5px;
+  font-weight: 550;
+  color: var(--four);
+  margin: 0px 0px 12.5px 0px;
+}
+
+.content .left .md-profile .text p {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--five);
+  margin: 0px 0px 17.5px 0px;
+}
+
+.content .left .md-profile .text .img-icons {
+  margin: 0px 0px 20px 0px;
+}
+
+.content .left .md-profile .text .skills {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px 4px;
+  align-items: center;
+  margin: 0px 0px 20px 0px;
+}
+
+.content .left .md-profile .text .skills .skill {
+  width: auto;
+  height: auto;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: var(--nine);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.content .left .md-profile .text .skills .skill p {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--two);
+  margin: 0px;
+}
+
+.content .left .md-profile .text a {
+  width: 100%;
+  padding: 13.5px 0px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  margin: 0px 0px 20px 0px;
+  transition: all .1s ease-in-out;
+  cursor: pointer; 
+} .content .left .md-profile .text a:hover,
+.content .left .md-profile .text a:focus {
+  background: var(--secondary);
+}
+
+.content .left .md-profile .text a .icon {
+  font-size: 16px;
+  margin: 0px 0px 0px 5px;
+}
+
+/* About Me */
+.content .left .md-about {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--eleven);
+  box-shadow: var(--boxShadow);
+  border-radius: 12px;
+  margin: 20px 0px 0px 0px;
+  padding: 6.5%;
+}
+
+.content .left .md-about .title-about {
+  margin: 0px 0px 15px 0px;
+}
+
+.content .left .md-about p {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--four);
+  margin: 0px 0px 5px 0px;
+  padding: 0px 0px 15px 0px;
+  border-bottom: 1px solid var(--seven);
+}
+
+.content .left .md-about span {
+  width: 100%;
+  font-size: 14px;
+  user-select: none;
+  cursor: pointer;
+  font-weight: 400;
+  letter-spacing: 0.4;
+  color: var(--blue);
+  margin: 10px 0px 5px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.content .left .md-about span .icon {
+  min-width: 18px;
+  font-size: 18px;
+  margin: 0px 6px 0px 0px;
+}
+
+/* Information */
+.content .left .md-information {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--eleven);
+  box-shadow: var(--boxShadow);
+  border-radius: 12px;
+  margin: 20px 0px 0px 0px;
+  padding: 6.5%;
+}
+
+.content .left .md-information li {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0px;
+  border-bottom: 1px solid var(--seven);
+} .content .left .md-information li:last-child,
+.content .left .md-information li:last-of-type {
+  border-bottom: none;
+}
+
+.content .left .md-information li p {
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0px 6px 0px 0px;
+}
+
+.content .left .md-information li span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =====> RIGHT <===== */
+.content .right {
+  width: 100%;
+  height: auto;
+  margin: 0px 0px 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.content .right .top {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: var(--eleven);
+  padding: 7.5px;
+  box-shadow: var(--boxShadow);
+  position: sticky;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  top: 10px;
+  z-index: 100;
+}
+
+.content .right .top button {
+  width: 49.5%;
+  height: 40px;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--two);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .1s ease-in-out;
+} .content .right .top button:hover,
+.content .right .top button:focus {
+  background: var(--ten);
+  color: var(--secondary);
+} .content .right .top button.select {
+  background: var(--ten);
+  color: var(--secondary);
+}
+
+/* Experience  */
+.content .right .content-right .md-experience {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--eleven);
+  box-shadow: var(--boxShadow);
+  border-radius: 12px;
+  margin: 20px 0px 0px 0px;
+  padding: 20px;
+}
+
+/* Education */
+.content .right .content-right {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content .right .content-right .md-education {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--eleven);
+  box-shadow: var(--boxShadow);
+  border-radius: 12px;
+  margin: 20px 0px 0px 0px;
+  padding: 20px;
+}
+
+.content .right .content-right .list {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.content .right .content-right .list .item {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  border-radius: 12px;
+  margin: 10px 0px;
+  padding: 10px;
+  transition: all .1s ease-in-out;
+} .content .right .content-right .list .item:hover {
+  background: var(--ten);
+}
+
+.content .right .content-right .list .item .logo {
+  min-width: 50px;
+  max-width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  box-shadow: var(--boxShadow);
+}
+
+.content .right .content-right .list .item .logo.logo-2x {
+  padding: 3px;
+}
+
+.content .right .content-right .list .item .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.content .right .content-right .list .item .text {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px 0px 14px;
+}
+
+.content .right .content-right .list .item .text h1 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--one);
+  margin: 0px 0px 4px 0px;
+}
+
+.content .right .content-right .list .item .text .info {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 17.5px;
+  margin: 0px 0px 10px 0px;
+}
+
+.content .right .content-right .list .item .text .info p {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--three);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.content .right .content-right .list .item .text .info p .icon {
+  font-size: 16px;
+  margin: 0px 6px 0px 0px; 
+}
+
+.content .right .content-right .list .item p {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: var(--three);
+  margin: 0px 0px 6px 0px;
+}
+
+.content .right .content-right .list .item a {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--blue);
+  margin: 0px 0px 6px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.content .right .content-right .list .item a .icon {
+  font-size: 21px;
+  margin: 1px 6px 0px 0px;
+}
+
+/* Projects  */
+.content .right .content-right .md-projects {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--eleven);
+  box-shadow: var(--boxShadow);
+  border-radius: 12px;
+  margin: 20px 0px 0px 0px;
+  padding: 20px;
+}
+
+@media (max-width: 850px) {
+  .content { 
+    flex-direction: column;
+  }
+  .content .left {
+    width: 100%;
+    max-width: 550px;
+    margin: 0px auto;
+  }
+  .content .right {
+    width: 100%;
+    max-width: 550px;
+    margin: 20px auto 0px auto;
+  }
+}
