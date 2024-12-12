@@ -43,14 +43,14 @@ function App() {
 
   // Educations
   let educations = [
-    {
+    /*{
       logo: EtecImage,
       type: "Ensino Médio Integrado com Curso Técnico de RH",
       name: "Etec - Anna de Oliveira Ferraz",
       description: "Focado no desenvolvimento de habilidades em gestão de recursos humanos, incluindo liderança de equipes, recrutamento e comunicação organizacional. Incentiva a aprendizagem prática e projetos aplicados para preparar os alunos para os desafios profissionais.",
       location: "Centro, Araraquara",
       data: "2025 - 2027",
-    },
+    },*/
     {
       logo: LeticiaImage,
       type: "Ensino Fundamental",
@@ -114,9 +114,9 @@ function App() {
   ];
 
   // Modais
-  const [mdResume, setMdResume] = useState(true);
-  const [mdProjects, setMdProjects] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const [mdResume, setMdResume] = useState(false);
+  const [mdProjects, setMdProjects] = useState(true);
+  const [theme, setTheme] = useState('light');
 
   const toggleTheme = () => {
     
