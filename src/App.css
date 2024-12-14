@@ -98,6 +98,8 @@
   width: 100%;
   height: auto;
   transition: opacity 1s ease;
+  mask-image: linear-gradient(to bottom, 
+  var(--eleven) 0.5%, rgba(255, 255, 255, 0.00001) 90%);
 }
 
 .content .left .md-profile .text {
@@ -118,7 +120,7 @@
   background-position: center;
   transition: transform 0.3s ease, opacity 1s ease;
   transition: opacity 1s ease;
-  margin: -60px 0px 15px 0px;
+  margin: -75px 0px 15px 0px;
 }
 
 .content .left .md-profile .text h2 {
@@ -499,5 +501,25 @@
     width: 100%;
     max-width: 550px;
     margin: 20px auto 0px auto;
+  }
+  .content .right .content-right .md-projects .list .item {
+    flex-direction: column;
+  }
+  .content .right .content-right .md-projects .list .item .logo {
+    width: 92.5%;
+    max-width: 100%;
+    margin: 0px auto 10px auto;
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: transparent !important;
+    padding: 0px !important;
+    box-shadow: none;
+  }
+  .content .right .content-right .md-projects .list .item .logo img {
+    min-width: 50px;
+    max-width: 50px;
+    margin: 0px;
   }
 }
