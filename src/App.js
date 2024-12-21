@@ -23,7 +23,7 @@ function App() {
   let country = "BR";
   let description = "Desenvolvedor de software com mais de 2 anos de experiência na construção de aplicativos web. Hábil em React, React Native, Node.js, Javascript, Typecript, Python, C++ e MongoDB.";
   let skills = ["Typescript", "React", "Node.js", "Python", "ExpressJS", "C++", "MondoDB", "Git"];
-  let icons = "https://skillicons.dev/icons?theme=light&perline=7&i=html,css,tailwind,sass,js,ts,react,nodejs,express,npm,mongodb,git,github,cloudflare,firebase,netlify,aws,gcp,linux,mint,debian,kali,python,cpp,c";
+  let icons = "https://skillicons.dev/icons?theme=light&perline=8&i=html,css,tailwind,sass,js,ts,react,nodejs,express,npm,mongodb,git,github,cloudflare,firebase,netlify,aws,gcp,linux,mint,debian,kali,python,cpp,c";
 
   // About Me
   let about = "Sou apaixonado por usar a tecnologia para resolver problemas do mundo real. Estou sempre em busca de novas maneiras de melhorar a experiência do usuário e tornar o software mais acessível a todos. Também sou um forte defensor do software de código aberto e estou sempre disposto a contribuir com a comunidade.";
@@ -116,7 +116,7 @@ function App() {
   // Modais
   const [mdResume, setMdResume] = useState(false);
   const [mdProjects, setMdProjects] = useState(true);
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
   const toggleTheme = () => {
     

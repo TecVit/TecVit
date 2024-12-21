@@ -502,10 +502,14 @@
     max-width: 550px;
     margin: 20px auto 0px auto;
   }
-  .content .right .content-right .md-projects .list .item {
+  .content .right .content-right .md-projects .list .item,
+  .content .right .content-right .md-experience .list .item,
+  .content .right .content-right .md-education .list .item {
     flex-direction: column;
   }
-  .content .right .content-right .md-projects .list .item .logo {
+  .content .right .content-right .md-projects .list .item .logo,
+  .content .right .content-right .md-experience .list .item .logo,
+  .content .right .content-right .md-education .list .item .logo {
     width: 92.5%;
     max-width: 100%;
     margin: 0px auto 10px auto;
@@ -517,7 +521,9 @@
     padding: 0px !important;
     box-shadow: none;
   }
-  .content .right .content-right .md-projects .list .item .logo img {
+  .content .right .content-right .md-projects .list .item .logo img,
+  .content .right .content-right .md-experience .list .item .logo img,
+  .content .right .content-right .md-education .list .item .logo img {
     min-width: 50px;
     max-width: 50px;
     margin: 0px;
