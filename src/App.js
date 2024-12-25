@@ -21,7 +21,7 @@ function App() {
   let name = "Vitor Custodio da Silva";
   let profession = "Desenvolvedor de Software";
   let country = "BR";
-  let description = "Desenvolvedor de software com mais de 2 anos de experiência na construção de aplicativos web. Hábil em React, React Native, Node.js, Javascript, Typecript, Python, C++ e MongoDB.";
+  let description = "Desenvolvedor de software com mais de 2 anos de experiência na construção de aplicativos web.";
   let skills = ["Typescript", "React", "Node.js", "Python", "ExpressJS", "C++", "MondoDB", "Git"];
   let icons = "https://skillicons.dev/icons?theme=light&perline=8&i=html,css,tailwind,sass,js,ts,react,nodejs,express,npm,mongodb,git,github,cloudflare,firebase,netlify,aws,gcp,linux,mint,debian,kali,python,cpp,c";
 
@@ -43,14 +43,14 @@ function App() {
 
   // Educations
   let educations = [
-    /*{
+    {
       logo: EtecImage,
       type: "Ensino Médio Integrado com Curso Técnico de RH",
       name: "Etec - Anna de Oliveira Ferraz",
       description: "Focado no desenvolvimento de habilidades em gestão de recursos humanos, incluindo liderança de equipes, recrutamento e comunicação organizacional. Incentiva a aprendizagem prática e projetos aplicados para preparar os alunos para os desafios profissionais.",
       location: "Centro, Araraquara",
       data: "2025 - 2027",
-    },*/
+    },
     {
       logo: LeticiaImage,
       type: "Ensino Fundamental",
@@ -116,7 +116,7 @@ function App() {
   // Modais
   const [mdResume, setMdResume] = useState(false);
   const [mdProjects, setMdProjects] = useState(true);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
 
   const toggleTheme = () => {
     
@@ -183,8 +183,7 @@ function App() {
               </h1>
               <h2>{profession} - {country}</h2>
               <p>{description}</p>
-              <img className='img-icons' src={icons} alt="Ícones" />
-              {/* 
+              {/* <img className='img-icons' src={icons} alt="Ícones" /> */}
               <div className='skills'>
                 {skills.length > 0 && (
                   skills.map((skill, i) => (
@@ -194,7 +193,6 @@ function App() {
                   ))
                 )}
               </div>
-              */}
               <a href = "/curriculo.pdf" download="curriculo.pdf">
                 Baixar Currículo<IonIcon className='icon' icon={IoniconsIcons.downloadOutline} />
               </a>
