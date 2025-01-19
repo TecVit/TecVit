@@ -14,7 +14,9 @@
 ###
 
 <div align="left">
-  <img src="https://github-readme-stats.vercel.app/api?username=tecvit&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" height="150" alt="stats graph"  />
+  ![tecvit's Stats](https://github-readme-stats.vercel.app/api?username=tecvit&theme=dark&show_icons=true&hide_border=false&count_private=true)
+  ![tecvit's Streak](https://github-readme-streak-stats.herokuapp.com/?user=tecvit&theme=dark&hide_border=false)
+  ![tecvit's Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=tecvit&theme=dark&show_icons=true&hide_border=false&layout=compact)
   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=tecvit&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false" height="150" alt="languages graph"  />
 </div>
 
