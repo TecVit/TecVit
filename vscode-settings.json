@@ -59,7 +59,6 @@
       "FIG_NEW_SESSION": "1"
     },
     "workbench.editor.labelFormat": "short",
-    "editor.fontLigatures": true,
     "emmet.includeLanguages": {
       "javascript": "javascriptreact",
       "mdx": "javascriptreact"
@@ -92,8 +91,6 @@
     "git.enableSmartCommit": true,
     "editor.accessibilitySupport": "off",
     "explorer.confirmDragAndDrop": false,
-    "terminal.integrated.fontSize": 14,
-    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
     },
@@ -104,8 +101,6 @@
     ],
     "editor.semanticHighlighting.enabled": false,
     "breadcrumbs.enabled": false,
-    "workbench.productIconTheme": "fluent-icons",
-    "editor.fontFamily": "JetBrains Mono",
     "gitlens.codeLens.authors.enabled": false,
     "editor.tabSize": 2,
     "security.workspace.trust.untrustedFiles": "newWindow",
@@ -118,7 +113,6 @@
       ".vscode": true
       // "node_modules": true
     },
-    "workbench.iconTheme": "eq-material-theme-icons",
     "update.mode": "manual",
     "terminal.integrated.gpuAcceleration": "on",
     "terminal.integrated.defaultProfile.osx": "fish",
@@ -270,16 +264,14 @@
     },
     "workbench.layoutControl.enabled": false,
     "window.autoDetectColorScheme": true,
-    "workbench.preferredDarkColorTheme": "poimandres",
-    "workbench.preferredLightColorTheme": "Omni",
+    "workbench.preferredLightColorTheme": "Min Dark",
     "gitlens.advanced.messages": {
       "suppressIntegrationRequestTimedOutWarning": true
     },
     "liveServer.settings.donotShowInfoMsg": true,
-    "workbench.colorTheme": "GitHub Dark",
-    "terminal.integrated.enableMultiLinePasteWarning": false,
     "window.zoomLevel": 3,
     "explorer.confirmPasteNative": false,
     "window.menuBarVisibility": "toggle",
-    "python.createEnvironment.trigger": "off"
+    "python.createEnvironment.trigger": "off",
+    "workbench.iconTheme": "material-icon-theme"
   }
