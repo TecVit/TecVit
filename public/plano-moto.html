@@ -1,0 +1,533 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano Moto — 08/03 → CNH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;800;900&family=DM+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --asphalt:#191413;
+    --panel:#221B19;
+    --panel-2:#2B2320;
+    --line:#3B302C;
+    --oxblood:#6E1420;
+    --oxblood-lt:#94202F;
+    --amber:#E8A33D;
+    --green:#4FA96B;
+    --cream:#EFE9DC;
+    --muted:#9A8C84;
+    --chrome-hi:#E8E3DA;
+    --chrome-lo:#8D857B;
+    --display:"Big Shoulders Display","Haettenschweiler","Arial Narrow",sans-serif;
+    --body:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+    --mono:"DM Mono","SFMono-Regular",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -10%, #2A2220 0%, transparent 60%),
+      var(--asphalt);
+    color:var(--cream);
+    font-family:var(--body);
+    -webkit-font-smoothing:antialiased;
+    padding:20px 16px 64px;
+  }
+  .wrap{max-width:940px;margin:0 auto}
+
+  /* ---------- header ---------- */
+  .head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+  .badge{
+    font-family:var(--display);font-weight:900;font-size:clamp(34px,6vw,58px);
+    line-height:.86;letter-spacing:.01em;text-transform:uppercase;margin:0;
+    color:var(--cream);
+  }
+  .badge span{color:var(--oxblood-lt)}
+  .kicker{
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 6px;
+  }
+  .stamp{
+    border:1px solid var(--line);border-radius:2px;padding:8px 12px;
+    font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.5;
+    background:linear-gradient(180deg,var(--panel-2),var(--panel));
+  }
+  .stamp b{color:var(--cream);font-weight:500}
+
+  /* ---------- cluster ---------- */
+  .cluster{
+    border:1px solid var(--line);border-radius:10px;padding:22px;
+    background:linear-gradient(180deg,#2C2421 0%,#1D1715 100%);
+    box-shadow:inset 0 1px 0 #4A3D37, 0 18px 40px -24px #000;
+    display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;
+  }
+  @media(max-width:720px){.cluster{grid-template-columns:1fr;justify-items:center;text-align:center}}
+
+  .odo-label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .odo{display:flex;gap:3px;align-items:stretch}
+  .odo .cur{
+    font-family:var(--display);font-weight:800;font-size:26px;color:var(--muted);
+    align-self:center;margin-right:6px;
+  }
+  .digit{
+    width:clamp(30px,7vw,42px);height:clamp(48px,11vw,62px);overflow:hidden;position:relative;
+    border-radius:3px;
+    background:linear-gradient(180deg,#0C0A09,#241D1A 45%,#0C0A09);
+    box-shadow:inset 0 0 0 1px #453833, inset 0 6px 10px -6px #000, inset 0 -6px 10px -6px #000;
+  }
+  .digit.cents{width:clamp(22px,5vw,30px);background:linear-gradient(180deg,#0C0A09,#2A1417 45%,#0C0A09)}
+  .strip{position:absolute;inset:0;display:flex;flex-direction:column;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+  .strip i{
+    height:clamp(48px,11vw,62px);flex:none;display:grid;place-items:center;font-style:normal;
+    font-family:var(--mono);font-weight:500;font-size:clamp(22px,4.6vw,30px);color:var(--cream);
+  }
+  .digit.cents .strip i{color:var(--amber)}
+  .sep{align-self:center;font-family:var(--mono);color:var(--muted);padding:0 2px}
+  .odo-sub{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px}
+  .odo-sub b{color:var(--amber);font-weight:500}
+
+  /* fuel gauge */
+  .gauge{position:relative;width:190px;flex:none}
+  .gauge svg{display:block;width:100%;overflow:visible}
+  .gauge-pct{
+    position:absolute;left:0;right:0;top:52px;text-align:center;
+    font-family:var(--display);font-weight:900;font-size:38px;line-height:1;color:var(--cream);
+  }
+  .gauge-cap{
+    position:absolute;left:0;right:0;top:94px;text-align:center;
+    font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  }
+  .needle{transform-origin:95px 88px;transition:transform .7s cubic-bezier(.3,1.4,.4,1)}
+
+  /* telltales */
+  .lamps{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;grid-column:1/-1}
+  .lamp{
+    display:flex;align-items:center;gap:7px;padding:6px 10px;border-radius:2px;
+    border:1px solid var(--line);background:#1A1513;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  }
+  .lamp .bulb{width:7px;height:7px;border-radius:50%;background:#3B302C;flex:none}
+  .lamp.on{color:var(--cream);border-color:#5A4239}
+  .lamp.on .bulb{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+  .lamp.ok{color:var(--cream);border-color:#33513D}
+  .lamp.ok .bulb{background:var(--green);box-shadow:0 0 8px var(--green)}
+
+  /* ---------- sections ---------- */
+  h2{
+    font-family:var(--display);font-weight:800;font-size:26px;text-transform:uppercase;
+    letter-spacing:.02em;margin:38px 0 4px;
+  }
+  .h2sub{font-family:var(--mono);font-size:11px;color:var(--muted);margin:0 0 14px}
+  .card{border:1px solid var(--line);border-radius:8px;background:var(--panel);overflow:hidden}
+
+  /* knobs */
+  .knobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line)}
+  .knob{background:var(--panel);padding:12px 14px}
+  .knob label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .knob .row{display:flex;align-items:baseline;gap:4px}
+  .knob .cur{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  input[type=number],input[type=text]{
+    background:transparent;border:0;border-bottom:1px dashed #4A3D37;color:var(--cream);
+    font-family:var(--mono);font-size:16px;padding:2px 0;width:100%;min-width:0;
+  }
+  input:focus-visible,button:focus-visible,label:focus-within{outline:2px solid var(--amber);outline-offset:2px}
+  input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  input[type=number]{-moz-appearance:textfield}
+
+  /* table */
+  .rowline{
+    display:grid;grid-template-columns:44px 74px 1fr 108px 108px;gap:10px;align-items:center;
+    padding:11px 14px;border-top:1px solid var(--line);
+  }
+  .rowline.head-row{
+    border-top:0;background:#1B1614;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  }
+  .rowline.done{background:#1C2018}
+  .rowline.done .nm{color:var(--muted);text-decoration:line-through;text-decoration-color:#4a5c48}
+  @media(max-width:680px){
+    .rowline{grid-template-columns:36px 60px 1fr 88px;gap:8px}
+    .rowline .acc{display:none}
+  }
+  .dt{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .nm{font-size:14px;font-weight:500}
+  .nm small{display:block;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-weight:400}
+  .acc{font-family:var(--mono);font-size:12.5px;color:var(--muted);text-align:right}
+  .rowline.done .acc{color:var(--green)}
+  .val{font-family:var(--mono);font-size:14px;text-align:right}
+  .val input{text-align:right;font-size:14px}
+
+  /* checkbox */
+  .chk{position:relative;width:26px;height:26px;flex:none;cursor:pointer;display:block}
+  .chk input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+  .chk .box{
+    position:absolute;inset:0;border:1px solid #55453E;border-radius:3px;
+    background:linear-gradient(180deg,#2E2622,#1B1614);
+    display:grid;place-items:center;transition:.15s;
+  }
+  .chk .box::after{
+    content:"";width:11px;height:6px;border-left:2px solid var(--asphalt);border-bottom:2px solid var(--asphalt);
+    transform:rotate(-45deg) scale(.4);opacity:0;transition:.15s;margin-top:-2px;
+  }
+  .chk input:checked + .box{background:var(--green);border-color:var(--green)}
+  .chk input:checked + .box::after{opacity:1;transform:rotate(-45deg) scale(1)}
+  .chk input:focus-visible + .box{outline:2px solid var(--amber);outline-offset:2px}
+
+  /* milestone */
+  .milestone{
+    display:flex;align-items:center;gap:12px;padding:14px;border-top:1px solid var(--line);
+    background:linear-gradient(90deg,rgba(110,20,32,.35),transparent);
+  }
+  .milestone .mk{font-family:var(--display);font-weight:900;font-size:20px;text-transform:uppercase;color:var(--cream)}
+  .milestone .ms{font-family:var(--mono);font-size:11px;color:var(--muted)}
+
+  /* expenses */
+  .exp{display:grid;grid-template-columns:1fr 110px 34px;gap:10px;align-items:center;padding:9px 14px;border-top:1px solid var(--line)}
+  .exp.head-row{border-top:0;background:#1B1614;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .del{
+    background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:3px;
+    width:28px;height:28px;cursor:pointer;font-size:14px;line-height:1;
+  }
+  .del:hover{border-color:var(--oxblood-lt);color:var(--oxblood-lt)}
+
+  .btn{
+    background:linear-gradient(180deg,var(--panel-2),#1B1614);border:1px solid var(--line);
+    color:var(--cream);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    padding:9px 14px;border-radius:3px;cursor:pointer;
+  }
+  .btn:hover{border-color:var(--amber);color:var(--amber)}
+  .btn.ghost{color:var(--muted)}
+  .bar{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line);flex-wrap:wrap}
+
+  /* summary */
+  .sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--line);margin-top:1px}
+  .sc{background:var(--panel);padding:13px 14px}
+  .sc .l{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .sc .v{font-family:var(--mono);font-size:19px;margin-top:5px}
+  .sc .v.pos{color:var(--green)}
+  .sc .v.neg{color:var(--oxblood-lt)}
+  .sc .v.amb{color:var(--amber)}
+
+  .note{font-size:13px;color:var(--muted);line-height:1.6;margin-top:12px}
+  .note b{color:var(--cream);font-weight:500}
+  .saved{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;border-top:1px solid var(--line)}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+
+  <div class="head">
+    <div>
+      <p class="kicker">Objetivo único · nada mais entra aqui</p>
+      <h1 class="badge">Plano <span>Moto</span></h1>
+    </div>
+    <div class="stamp">
+      Meta <b id="s-meta">R$ 16.000</b><br>
+      Carta <b>08/03/2027</b> · 18 anos<br>
+      Moto na mão <b>~05/05/2027</b>
+    </div>
+  </div>
+
+  <!-- ======= CLUSTER ======= -->
+  <div class="cluster">
+    <div>
+      <div class="odo-label">Guardado · confirmado</div>
+      <div class="odo" id="odo"></div>
+      <div class="odo-sub">Projetado até 05/05: <b id="s-proj">—</b> · falta <b id="s-falta">—</b></div>
+    </div>
+
+    <div class="gauge">
+      <svg viewBox="0 0 190 105" aria-hidden="true">
+        <path d="M25 88 A70 70 0 0 1 165 88" fill="none" stroke="#2E2521" stroke-width="13" stroke-linecap="round"/>
+        <path id="arc" d="M25 88 A70 70 0 0 1 165 88" fill="none" stroke="url(#g)" stroke-width="13" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="g" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#94202F"/><stop offset=".5" stop-color="#E8A33D"/><stop offset="1" stop-color="#4FA96B"/>
+          </linearGradient>
+        </defs>
+        <g class="needle" id="needle">
+          <line x1="95" y1="88" x2="95" y2="34" stroke="#EFE9DC" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+        <circle cx="95" cy="88" r="5" fill="#8D857B"/>
+        <text x="21" y="103" fill="#9A8C84" font-family="DM Mono, monospace" font-size="9">E</text>
+        <text x="164" y="103" fill="#9A8C84" font-family="DM Mono, monospace" font-size="9">F</text>
+      </svg>
+      <div class="gauge-pct" id="s-pct">0%</div>
+      <div class="gauge-cap">do tanque</div>
+    </div>
+
+    <div class="lamps">
+      <span class="lamp" id="l-ritmo"><span class="bulb"></span><span id="l-ritmo-t">Ritmo</span></span>
+      <span class="lamp" id="l-folga"><span class="bulb"></span><span id="l-folga-t">Folga do mês</span></span>
+      <span class="lamp" id="l-cripto"><span class="bulb"></span><span id="l-cripto-t">Caixa em cripto</span></span>
+    </div>
+  </div>
+
+  <!-- ======= AJUSTES ======= -->
+  <h2>Os números</h2>
+  <p class="h2sub">Mudou o salário, o dissídio ou o caixa? Muda aqui e o plano inteiro se refaz.</p>
+  <div class="card">
+    <div class="knobs">
+      <div class="knob"><label for="k-meta">Meta (moto)</label><div class="row"><span class="cur">R$</span><input type="number" id="k-meta" step="100"></div></div>
+      <div class="knob"><label for="k-caixa">Caixa hoje</label><div class="row"><span class="cur">R$</span><input type="number" id="k-caixa" step="10"></div></div>
+      <div class="knob"><label for="k-pag">Pagamento · dia 5</label><div class="row"><span class="cur">R$</span><input type="number" id="k-pag" step="1"></div></div>
+      <div class="knob"><label for="k-vale">Vale · dia 20</label><div class="row"><span class="cur">R$</span><input type="number" id="k-vale" step="1"></div></div>
+      <div class="knob"><label for="k-corte">Guardo do pagamento</label><div class="row"><span class="cur">R$</span><input type="number" id="k-corte" step="1"></div></div>
+    </div>
+    <div class="sum">
+      <div class="sc"><div class="l">Entra por mês</div><div class="v" id="s-entra">—</div></div>
+      <div class="sc"><div class="l">Guardo por mês</div><div class="v amb" id="s-guardo">—</div></div>
+      <div class="sc"><div class="l">Sobra pra viver</div><div class="v" id="s-sobra">—</div></div>
+      <div class="sc"><div class="l">Folga depois dos gastos</div><div class="v" id="s-folga">—</div></div>
+    </div>
+  </div>
+
+  <!-- ======= CALENDÁRIO ======= -->
+  <h2>Cada aporte</h2>
+  <p class="h2sub">Marca no dia que o dinheiro sai da conta corrente. Se veio diferente do plano, corrige o valor.</p>
+  <div class="card">
+    <div class="rowline head-row">
+      <span>Ok</span><span>Data</span><span>De onde</span><span class="val" style="text-align:right">Valor</span><span class="acc">Acumulado</span>
+    </div>
+    <div id="cal"></div>
+    <div class="bar">
+      <button class="btn ghost" id="b-reset">Voltar tudo ao plano original</button>
+    </div>
+  </div>
+
+  <!-- ======= GASTOS ======= -->
+  <h2>O que sai todo mês</h2>
+  <p class="h2sub">Isso sai da sobra, não do que tá guardado. Se o total passar da sobra, a lâmpada acende.</p>
+  <div class="card">
+    <div class="exp head-row"><span>Gasto</span><span style="text-align:right">R$ / mês</span><span></span></div>
+    <div id="exps"></div>
+    <div class="bar">
+      <button class="btn" id="b-add">+ Adicionar gasto</button>
+    </div>
+    <div class="sum">
+      <div class="sc"><div class="l">Total dos gastos</div><div class="v" id="s-gastos">—</div></div>
+      <div class="sc"><div class="l">Sobra pra viver</div><div class="v" id="s-sobra2">—</div></div>
+      <div class="sc"><div class="l">Folga</div><div class="v" id="s-folga2">—</div></div>
+      <div class="sc"><div class="l">Folga acumulada até maio</div><div class="v" id="s-folga3">—</div></div>
+    </div>
+    <div class="saved" id="saved">Salvando…</div>
+  </div>
+
+  <p class="note">
+    <b>A regra:</b> dia 20 o vale inteiro vai pra reserva, sem passar pela conta. Dia 5 você transfere o corte do pagamento no minuto em que cair — se ficar “pra separar depois”, some.
+    <b>Onde botar:</b> Tesouro Selic ou CDB de liquidez diária a 100%+ do CDI. Rende ~1% ao mês e saca quando quiser.
+    <b>A folga</b> não é pra gastar por padrão: deixa acumular como reserva do próprio plano, pra que um imprevisto de R$ 200 não vire “esse mês eu não guardo”.
+  </p>
+
+</div>
+
+<script>
+const PLANO = [
+  {d:"20/07/26", t:"Vale",            v:868.00},
+  {d:"05/08/26", t:"Pagamento",       v:286.00},
+  {d:"20/08/26", t:"Vale",            v:868.00},
+  {d:"05/09/26", t:"Pagamento",       v:286.00},
+  {d:"20/09/26", t:"Vale",            v:868.00},
+  {d:"05/10/26", t:"Pagamento",       v:286.00},
+  {d:"20/10/26", t:"Vale",            v:868.00},
+  {d:"05/11/26", t:"Pagamento",       v:286.00},
+  {d:"20/11/26", t:"Vale",            v:923.90, n:"dissídio +6%"},
+  {d:"30/11/26", t:"13º · 1ª parcela",v:1154.87},
+  {d:"05/12/26", t:"Pagamento",       v:286.00},
+  {d:"20/12/26", t:"Vale",            v:923.90},
+  {d:"20/12/26", t:"13º · 2ª parcela",v:969.76},
+  {d:"05/01/27", t:"Pagamento",       v:286.00},
+  {d:"20/01/27", t:"Vale",            v:923.90},
+  {d:"05/02/27", t:"Pagamento",       v:286.00},
+  {d:"20/02/27", t:"Vale",            v:923.90},
+  {d:"05/03/27", t:"Pagamento",       v:286.00},
+  {m:"08/03/27", mk:"18 anos", ms:"Entra no Detran — categoria A"},
+  {d:"20/03/27", t:"Vale",            v:923.90},
+  {d:"05/04/27", t:"Pagamento",       v:286.00},
+  {d:"20/04/27", t:"Vale",            v:923.90},
+  {d:"05/05/27", t:"Pagamento",       v:286.00}
+];
+
+const GASTOS = [
+  {n:"Uber escola (15 × 20 dias)", v:300.00},
+  {n:"Comida na escola (10 × 5)",  v:50.00},
+  {n:"Internet",                   v:40.00},
+  {n:"Cinema",                     v:29.90},
+  {n:"Spotify",                    v:24.90},
+  {n:"Amazon Prime",               v:13.90},
+  {n:"iFood",                      v:7.95},
+  {n:"Google One",                 v:4.50},
+  {n:"YouTube",                    v:1.90}
+];
+
+const fresh = () => ({
+  meta:16000, caixa:2000, pag:990, vale:868, corte:286,
+  rows: PLANO.map((p,i)=> p.m ? {i,mk:true} : {i, real:p.v, done:false}),
+  gastos: GASTOS.map(g=>({n:g.n, v:g.v}))
+});
+
+let S = fresh();
+const KEY = "plano-moto-v1";
+const $ = s => document.querySelector(s);
+const brl = n => "R$ " + n.toLocaleString("pt-BR",{minimumFractionDigits:2, maximumFractionDigits:2});
+const brl0 = n => "R$ " + Math.round(n).toLocaleString("pt-BR");
+
+/* ---------- odômetro ---------- */
+function buildOdo(){
+  const o = $("#odo");
+  o.innerHTML = '<span class="cur">R$</span>';
+  for(let k=0;k<5;k++){
+    const d=document.createElement("div"); d.className="digit";
+    d.innerHTML='<div class="strip">'+[0,1,2,3,4,5,6,7,8,9].map(n=>`<i>${n}</i>`).join("")+'</div>';
+    o.appendChild(d);
+  }
+  const s=document.createElement("span"); s.className="sep"; s.textContent=","; o.appendChild(s);
+  for(let k=0;k<2;k++){
+    const d=document.createElement("div"); d.className="digit cents";
+    d.innerHTML='<div class="strip">'+[0,1,2,3,4,5,6,7,8,9].map(n=>`<i>${n}</i>`).join("")+'</div>';
+    o.appendChild(d);
+  }
+}
+function setOdo(val){
+  const cents = Math.round(Math.min(val,99999.99)*100);
+  const str = String(cents).padStart(7,"0").slice(-7);
+  const strips = document.querySelectorAll("#odo .strip");
+  const h = document.querySelector("#odo .digit").clientHeight;
+  strips.forEach((st,idx)=>{ st.style.transform = `translateY(${-(+str[idx])*h}px)`; });
+}
+
+/* ---------- render ---------- */
+function renderCal(){
+  const c = $("#cal"); c.innerHTML="";
+  let acc = S.caixa;
+  S.rows.forEach((r,idx)=>{
+    const p = PLANO[r.i];
+    if(p.m){
+      const el=document.createElement("div"); el.className="milestone";
+      el.innerHTML = `<div class="dt" style="width:66px">${p.m}</div>
+        <div><div class="mk">${p.mk}</div><div class="ms">${p.ms}</div></div>`;
+      c.appendChild(el); return;
+    }
+    if(r.done) acc += (+r.real||0);
+    const el=document.createElement("div");
+    el.className="rowline"+(r.done?" done":"");
+    el.innerHTML = `
+      <label class="chk"><input type="checkbox" ${r.done?"checked":""} aria-label="Marcar ${p.t} de ${p.d} como guardado"><span class="box"></span></label>
+      <span class="dt">${p.d}</span>
+      <span class="nm">${p.t}${p.n?`<small>${p.n}</small>`:""}</span>
+      <span class="val"><input type="number" step="0.01" value="${r.real}" aria-label="Valor guardado"></span>
+      <span class="acc">${r.done?brl0(acc):"—"}</span>`;
+    el.querySelector("input[type=checkbox]").onchange = e => { r.done = e.target.checked; render(); };
+    el.querySelector("input[type=number]").onchange = e => { r.real = +e.target.value||0; render(); };
+    c.appendChild(el);
+  });
+}
+
+function renderExps(){
+  const c = $("#exps"); c.innerHTML="";
+  S.gastos.forEach((g,i)=>{
+    const el=document.createElement("div"); el.className="exp";
+    el.innerHTML = `<input type="text" value="${g.n.replace(/"/g,"&quot;")}" aria-label="Nome do gasto">
+      <input type="number" step="0.01" value="${g.v}" style="text-align:right" aria-label="Valor do gasto">
+      <button class="del" aria-label="Remover ${g.n}">×</button>`;
+    const [nm,vl,bt] = el.children;
+    nm.onchange = e => { g.n = e.target.value; save(); };
+    vl.onchange = e => { g.v = +e.target.value||0; render(); };
+    bt.onclick = () => { S.gastos.splice(i,1); render(); };
+    c.appendChild(el);
+  });
+}
+
+function lamp(el,txt,state){
+  el.className = "lamp" + (state?" "+state:"");
+  el.querySelector("span:last-child").textContent = txt;
+}
+
+function render(){
+  // knobs
+  $("#k-meta").value=S.meta; $("#k-caixa").value=S.caixa;
+  $("#k-pag").value=S.pag; $("#k-vale").value=S.vale; $("#k-corte").value=S.corte;
+
+  const entra = S.pag + S.vale;
+  const guardo = S.vale + S.corte;
+  const sobra = S.pag - S.corte;
+  const gastos = S.gastos.reduce((a,g)=>a+g.v,0);
+  const folga = sobra - gastos;
+
+  $("#s-entra").textContent = brl(entra);
+  $("#s-guardo").textContent = brl(guardo);
+  $("#s-sobra").textContent = brl(sobra);
+  $("#s-sobra2").textContent = brl(sobra);
+  $("#s-gastos").textContent = brl(gastos);
+  ["#s-folga","#s-folga2"].forEach(id=>{
+    const e=$(id); e.textContent=brl(folga); e.className="v "+(folga<0?"neg":folga<150?"amb":"pos");
+  });
+  $("#s-folga3").textContent = brl(folga*10);
+  $("#s-meta").textContent = brl0(S.meta);
+
+  renderCal(); renderExps();
+
+  const feito = S.caixa + S.rows.reduce((a,r)=> a + (r.mk||!r.done?0:(+r.real||0)), 0);
+  const proj  = S.caixa + S.rows.reduce((a,r)=> a + (r.mk?0:(+r.real||0)), 0);
+  const pct = Math.max(0, Math.min(1, feito/S.meta));
+
+  setOdo(feito);
+  $("#s-proj").textContent = brl0(proj);
+  $("#s-falta").textContent = brl0(Math.max(0,S.meta-feito));
+  $("#s-pct").textContent = Math.round(pct*100)+"%";
+  $("#needle").style.transform = `rotate(${-90 + pct*180}deg)`;
+  const arc=$("#arc"), L=arc.getTotalLength();
+  arc.style.strokeDasharray=L; arc.style.strokeDashoffset=L*(1-pct);
+
+  // lâmpadas
+  const gap = proj - S.meta;
+  if(gap >= 0) lamp($("#l-ritmo"), `Fecha com ${brl0(gap)} de sobra`, "ok");
+  else lamp($("#l-ritmo"), `Faltam ${brl0(-gap)} no plano`, "on");
+
+  if(folga < 0) lamp($("#l-folga"), `Folga negativa · ${brl0(folga)}`, "on");
+  else if(folga < 150) lamp($("#l-folga"), `Folga apertada · ${brl0(folga)}/mês`, "on");
+  else lamp($("#l-folga"), `Folga ${brl0(folga)}/mês`, "ok");
+
+  lamp($("#l-cripto"), "Caixa em cripto · sem data segura", "on");
+
+  save();
+}
+
+/* ---------- storage ---------- */
+let t=null;
+function save(){
+  clearTimeout(t);
+  t=setTimeout(async()=>{
+    try{ await window.storage.set(KEY, JSON.stringify(S));
+      $("#saved").textContent = "Salvo · " + new Date().toLocaleTimeString("pt-BR");
+    }catch(e){ $("#saved").textContent = "Não deu pra salvar. Suas mudanças valem só nesta aba."; }
+  },350);
+}
+async function load(){
+  try{
+    const r = await window.storage.get(KEY);
+    if(r && r.value){
+      const p = JSON.parse(r.value);
+      if(p && Array.isArray(p.rows) && p.rows.length === PLANO.length) S = p;
+    }
+  }catch(e){ /* primeira vez: sem chave salva */ }
+}
+
+/* ---------- init ---------- */
+["meta","caixa","pag","vale","corte"].forEach(k=>{
+  $("#k-"+k).onchange = e => { S[k] = +e.target.value||0; render(); };
+});
+$("#b-add").onclick = () => { S.gastos.push({n:"Novo gasto", v:0}); render(); };
+$("#b-reset").onclick = () => {
+  S.rows = fresh().rows; render();
+};
+
+buildOdo();
+load().then(()=>{ render(); requestAnimationFrame(()=>render()); });
+window.addEventListener("resize", ()=>{
+  const feito = S.caixa + S.rows.reduce((a,r)=> a + (r.mk||!r.done?0:(+r.real||0)), 0);
+  setOdo(feito);
+});
+</script>
